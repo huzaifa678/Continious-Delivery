@@ -19,3 +19,14 @@ tlsSecretName:
   grpc: crypto-app-gapi-tls-secret
 ingressClass: nginx
 hostedZoneId: Z01601922DP7HAM1NYV8Z
+livenessProbe:
+  path: /healthz
+  port: 8081
+  initialDelaySeconds: 60
+  periodSeconds: 10
+
+readinessProbe:
+  path: /ready
+  port: 8081
+  initialDelaySeconds: 30
+  periodSeconds: 5

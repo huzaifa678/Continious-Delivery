@@ -25,14 +25,16 @@ spec:
           name: grpc-server
         livenessProbe:
           httpGet:
-            path: /healthz
-            port: {{ .Values.httpPort }}
-          initialDelaySeconds: 10
-          periodSeconds: 10
+            path: {{ .Values.livenessProbe.path }}
+            port: {{ .Values.livenessProbe.port }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+
         readinessProbe:
           httpGet:
-            path: /ready
-            port: {{ .Values.httpPort }}
-          initialDelaySeconds: 5
-          periodSeconds: 5
+            path: {{ .Values.readinessProbe.path }}
+            port: {{ .Values.readinessProbe.port }}
+          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+
         
