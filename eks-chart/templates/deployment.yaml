@@ -29,6 +29,8 @@ spec:
             port: {{ .Values.livenessProbe.port }}
           initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          failureThreshold: 3
+          timeoutSeconds: 1
 
         readinessProbe:
           httpGet:
@@ -36,5 +38,7 @@ spec:
             port: {{ .Values.readinessProbe.port }}
           initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+          failureThreshold: 3
+          timeoutSeconds: 1
 
         
