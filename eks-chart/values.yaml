@@ -11,7 +11,7 @@ ingress:
   enabled: true
   ingressClassName: nginx
 replicas: 2
-image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:1e0fee8c0f2f75a9377c9c8a904f986e533e4326
+image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:a601a594884f5c9e03a3115d912119b7e4bd052c
 server: https://acme-v02.api.letsencrypt.org/directory
 email: huzaifagill411@gmail.com
 tlsSecretName:
