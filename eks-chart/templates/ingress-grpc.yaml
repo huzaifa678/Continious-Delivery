@@ -1,26 +1,29 @@
+{{- if and (eq .Values.environment "test") .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.appName }}-ingress-grpc
+  namespace: {{ .Values.namespace }}
   annotations:
     external-dns.alpha.kubernetes.io/hostname: "{{ .Values.domainName.grpc }}"
     cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
 spec:
-  ingressClassName: {{ .Values.ingressClass }}
+  ingressClassName: {{ .Values.ingressClassName }}
   rules:
-  - host: {{ .Values.domainName.grpc }}
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Values.apiService }}
-            port:
-              number: 90
+    - host: {{ .Values.domainName.grpc }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.apiService }}
+                port:
+                  number: 90
   tls:
-  - hosts:
-    - {{ .Values.domainName.grpc }}
-    secretName: {{ .Values.tlsSecretName.grpc }}
+    - hosts:
+        - {{ .Values.domainName.grpc }}
+      secretName: {{ .Values.tlsSecretName.grpc }}
+{{- end }}

@@ -1,0 +1,19 @@
+{{- if and (eq .Values.environment "post-test") .Values.ingress.enabled }}
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GRPCRoute
+metadata:
+  name: {{ .Values.appName }}-grpc-route
+  namespace: default
+spec:
+  parentRefs:
+    - name: {{ .Values.appName }}-gateway
+  hostnames:
+    - {{ .Values.domainName.grpc }}
+  rules:
+    - matches:
+        - method:
+            type: All
+      backendRefs:
+        - name: {{ .Values.apiService }}
+          port: 90
+{{- end }}
