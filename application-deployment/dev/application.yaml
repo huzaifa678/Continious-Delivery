@@ -13,9 +13,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-    parameters:
-        - name: environment
-          value: post-test
 
   destination:
     server: https://kubernetes.default.svc

@@ -1,4 +1,4 @@
-{{- if and (eq .Values.environment "post-test") .Values.ingress.enabled }}
+{{- if and .Values.gateway.enabled (eq .Values.environment "post-test") }}
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GRPCRoute
 metadata:

@@ -11,7 +11,9 @@ service:
 ingress:
   enabled: true
   ingressClassName: nginx
-gatewayClass: nginx
+gatewayClass: nginx-fabric
+gateway:
+  enabled: true
 replicas: 2
 image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:a601a594884f5c9e03a3115d912119b7e4bd052c
 server: https://acme-v02.api.letsencrypt.org/directory
