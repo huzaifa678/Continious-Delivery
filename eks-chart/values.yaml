@@ -1,4 +1,4 @@
-environment: test 
+environment: post-test 
 domainName:
   http: api.freeeasycrypto.com
   grpc: gapi.freeeasycrypto.com
