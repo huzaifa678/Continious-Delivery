@@ -1,27 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crypto-app
+  name: gateway-crds
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/huzaifa678/Continious-Delivery.git
     targetRevision: main
-    path: eks-chart
-    helm:
-      valueFiles:
-        - values.yaml
-
+    path: eks-chart/crds   
   destination:
     server: https://kubernetes.default.svc
-    namespace: my-app
-
+    namespace: default
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+      prune: false        
+      selfHeal: false
