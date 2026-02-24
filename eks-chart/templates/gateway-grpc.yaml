@@ -3,7 +3,6 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: GRPCRoute
 metadata:
   name: {{ .Values.appName }}-grpc-route
-  namespace: default
 spec:
   parentRefs:
     - name: {{ .Values.appName }}-gateway
