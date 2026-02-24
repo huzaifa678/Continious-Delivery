@@ -15,7 +15,7 @@ gatewayClass: nginx-fabric
 gateway:
   enabled: true
 replicas: 2
-image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:b72296c626dc8c576748b8da8f0ddbf69cbd5522
+image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:3d2709d69dc90f202deaab075775be6048cb5493
 server: https://acme-v02.api.letsencrypt.org/directory
 email: huzaifagill411@gmail.com
 tlsSecretName:
