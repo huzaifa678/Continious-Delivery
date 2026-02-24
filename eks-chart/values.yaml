@@ -16,7 +16,7 @@ ingress:
   enabled: true
   ingressClassName: nginx
 
-gatewayClass: nginx-fabric
+gatewayClass: nginx
 
 gateway:
   enabled: true
@@ -29,8 +29,8 @@ server: https://acme-v02.api.letsencrypt.org/directory
 email: huzaifagill411@gmail.com
 
 tlsSecretName:
-  http: crypto-app-api-tls-secret
-  grpc: crypto-app-gapi-tls-secret
+  http: crypto-app-api-tls
+  grpc: crypto-app-gapi-tls
 
 ingressClass: nginx
 
