@@ -3,16 +3,22 @@ kind: Application
 metadata:
   name: gateway-crds
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
+
   source:
     repoURL: https://github.com/huzaifa678/Continious-Delivery.git
     targetRevision: main
-    path: eks-chart/crds   
+    path: eks-chart/crds
+
   destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+    server: https://kubernetes.default.svc  
+
   syncPolicy:
     automated:
-      prune: false        
-      selfHeal: false
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - Replace=true
