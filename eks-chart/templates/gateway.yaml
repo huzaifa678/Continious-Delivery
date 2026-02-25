@@ -4,6 +4,7 @@ kind: Gateway
 metadata:
   name: {{ .Values.appName }}-gateway
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
     networking.aws.amazon.com/load-balancer-type: nlb
     networking.aws.amazon.com/load-balancer-scheme: internet-facing
 spec:
