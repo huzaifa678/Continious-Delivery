@@ -12,6 +12,7 @@ ingress:
   ingressClassName: nginx
 gatewayClass: nginx
 gateway:
+  nlbTarget: ""
   enabled: true
   nlbTarget: k8s-myapp-cryptoap-c9e13b1edb-907a9b7e87b0b360.elb.us-east-1.amazonaws.com
 replicas: 2
