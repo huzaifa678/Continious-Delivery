@@ -23,7 +23,7 @@ spec:
         certificateRefs:
           - name: {{ .Values.tlsSecretName.http }}
     - name: grpc
-      protocol: GRPC
+      protocol: HTTPS
       port: 443
       hostname: {{ .Values.domainName.grpc }}
       tls:
