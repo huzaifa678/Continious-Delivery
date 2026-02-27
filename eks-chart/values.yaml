@@ -13,9 +13,11 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  publicSubnetIds: []
+  publicSubnetIds:
+    - subnet-02ba68c30aa99471a
+    - subnet-0741a0ccc76183426
 replicas: 2
-image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:fa029fa0f9c65dabbc909de2229091a87f6de7f7
+image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:f87eb121c5901a25790216fdd88a68cfa879d6d5
 server: https://acme-v02.api.letsencrypt.org/directory
 email: huzaifagill411@gmail.com
 tlsSecretName:
