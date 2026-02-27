@@ -1,4 +1,4 @@
-{{- if and .Values.gateway.enabled (eq .Values.environment "post-test") }}
+{{- if and .Values.gateway.enabled (eq .Values.environment "post-test") (gt (len .Values.gateway.publicSubnetIds) 0) }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -8,10 +8,7 @@ metadata:
     networking.aws.amazon.com/load-balancer-type: nlb
     networking.aws.amazon.com/load-balancer-scheme: internet-facing
     networking.aws.amazon.com/ip-address-type: dualstack
-    {{- if .Values.gateway.publicSubnetIds }}
     networking.aws.amazon.com/subnets: {{ join "," .Values.gateway.publicSubnetIds }}
-    {{- end }}
-    external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   gatewayClassName: {{ .Values.gatewayClass }}
   listeners:

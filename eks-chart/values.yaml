@@ -13,10 +13,7 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  nlbTarget: ""
-  publicSubnetIds:
-    - subnet-05b6341b3a5aa96f7
-    - subnet-0157ee57d2aba9288
+  publicSubnetIds: []
 replicas: 2
 image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:fa029fa0f9c65dabbc909de2229091a87f6de7f7
 server: https://acme-v02.api.letsencrypt.org/directory
