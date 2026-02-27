@@ -7,6 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     networking.aws.amazon.com/load-balancer-type: nlb
     networking.aws.amazon.com/load-balancer-scheme: internet-facing
+    networking.aws.amazon.com/ip-address-type: dualstack
     external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   gatewayClassName: {{ .Values.gatewayClass }}
