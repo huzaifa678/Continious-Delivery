@@ -15,7 +15,8 @@ gateway:
   enabled: true
   nlbTarget: "k8s-myapp-cryptoap-b82fef1219-c9c5ca5d2d7f8028.elb.us-east-1.amazonaws.com"
   publicSubnetIds:
-    - subnet-0ce51fced1f5b1bb2 - subnet-0d56a82f22da30e72
+    - subnet-0ce51fced1f5b1bb2 
+    - subnet-0d56a82f22da30e72
 replicas: 2
 image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:5537ced58e77fb5bc85dee7e2501b6fac505c020
 server: https://acme-v02.api.letsencrypt.org/directory
