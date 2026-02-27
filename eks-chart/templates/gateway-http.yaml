@@ -1,4 +1,6 @@
 {{- if and .Values.gateway.enabled (eq .Values.environment "post-test") }}
+{{- $nlbTarget := .Values.gateway.nlbTarget | default "" }}
+{{- if ne $nlbTarget "" }}
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
