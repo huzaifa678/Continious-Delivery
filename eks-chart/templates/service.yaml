@@ -1,3 +1,4 @@
+{{- if and .Values.gateway.enabled (eq .Values.environment "post") }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -15,6 +16,7 @@ spec:
       targetPort: grpc-server
       name: grpc-service
   type: ClusterIP
+{{- end }}
 ---
 {{- if and .Values.gateway.enabled (eq .Values.environment "post-test") (gt (len .Values.gateway.publicSubnetIds) 0) }}
 apiVersion: v1
