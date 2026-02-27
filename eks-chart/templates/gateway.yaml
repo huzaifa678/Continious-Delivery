@@ -5,10 +5,6 @@ metadata:
   name: {{ .Values.appName }}-gateway
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    networking.aws.amazon.com/load-balancer-type: nlb
-    networking.aws.amazon.com/load-balancer-scheme: internet-facing
-    networking.aws.amazon.com/ip-address-type: dualstack
-    networking.aws.amazon.com/subnets: {{ join "," .Values.gateway.publicSubnetIds }}
 spec:
   gatewayClassName: {{ .Values.gatewayClass }}
   listeners:
