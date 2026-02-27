@@ -43,4 +43,4 @@ spec:
       targetPort: grpc-server
       name: grpc-service
   type: LoadBalancer
-{{ -end }}
+{{- end }}
