@@ -13,7 +13,7 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  nlbTarget: "None"
+  nlbTarget: ""
   publicSubnetIds:
     - subnet-05b6341b3a5aa96f7
     - subnet-0157ee57d2aba9288
