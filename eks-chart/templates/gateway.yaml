@@ -5,6 +5,7 @@ metadata:
   name: {{ .Values.appName }}-gateway
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   gatewayClassName: {{ .Values.gatewayClass }}
   listeners:

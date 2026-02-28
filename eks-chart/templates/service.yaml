@@ -27,7 +27,6 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
     networking.aws.amazon.com/ip-address-type: dualstack
-    external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   selector:
     app: {{ .Values.appName }}
