@@ -29,7 +29,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-subnets: {{ join "," .Values.gateway.publicSubnetIds }}
     networking.aws.amazon.com/ip-address-type: dualstack
     networking.aws.amazon.com/subnets: {{ join "," .Values.gateway.publicSubnetIds }}
-    external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | default "" }}
+    external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   selector:
     app: {{ .Values.appName }}
