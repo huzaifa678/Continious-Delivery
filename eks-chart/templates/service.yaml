@@ -18,7 +18,7 @@ spec:
   type: ClusterIP
 {{- end }}
 ---
-{{- if and .Values.gateway.enabled (eq .Values.environment "post-test") (gt (len .Values.gateway.publicSubnetIds) 0) }}
+{{- if and .Values.gateway.enabled (eq .Values.environment "post-test") }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -26,9 +26,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    service.beta.kubernetes.io/aws-load-balancer-subnets: {{ join "," .Values.gateway.publicSubnetIds }}
     networking.aws.amazon.com/ip-address-type: dualstack
-    networking.aws.amazon.com/subnets: {{ join "," .Values.gateway.publicSubnetIds }}
     external-dns.alpha.kubernetes.io/target: {{ .Values.gateway.nlbTarget | quote }}
 spec:
   selector:

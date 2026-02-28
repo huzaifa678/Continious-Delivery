@@ -13,9 +13,6 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  publicSubnetIds:
-    - subnet-09c0fe1f58832cc33
-    - subnet-0c6f47ca82216ff79
   nlbTarget: ""
 replicas: 2
 image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:f87eb121c5901a25790216fdd88a68cfa879d6d5
