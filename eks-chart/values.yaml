@@ -13,7 +13,7 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  nlbTarget: "k8s-myapp-cryptoap-e6bc53f73b-b589ed7050988072.elb.us-east-1.amazonaws.com"
+  nlbTarget: ""
 replicas: 2
 image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:b3dbc2c8c90b3d4298abfea4c44036d8c068c41b
 server: https://acme-v02.api.letsencrypt.org/directory
