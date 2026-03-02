@@ -1,4 +1,4 @@
-{{- if and .Values.gateway.enabled (eq .Values.environment "post") }}
+{{- if and .Values.gateway.enabled (eq .Values.environment "test") }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -26,7 +26,6 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
-    networking.aws.amazon.com/ip-address-type: dualstack
 spec:
   selector:
     app: {{ .Values.appName }}
