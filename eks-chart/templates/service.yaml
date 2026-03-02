@@ -38,5 +38,9 @@ spec:
       port: 90
       targetPort: grpc-server
       name: grpc-service
+    - name: https-service
+      port: 443
+      targetPort: http-server
+      protocol: TCP
   type: LoadBalancer
 {{- end }}
