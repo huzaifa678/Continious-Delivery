@@ -1,7 +1,7 @@
 environment: post-test
 domainName:
-  http: test-api.freeeasycrypto.com
-  grpc: test-gapi.freeeasycrypto.com
+  http: testapi.freeeasycrypto.com
+  grpc: testgapi.freeeasycrypto.com
 apiService: crypto-api-service
 appName: crypto-app-api
 httpPort: 80

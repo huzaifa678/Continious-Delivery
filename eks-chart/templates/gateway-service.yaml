@@ -9,7 +9,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: {{ .Values.appName }}-gateway-nginx
+    gateway.networking.k8s.io/gateway-name: {{ .Values.appName }}-gateway-nginx
   ports:
     - name: http
       port: 80
