@@ -13,9 +13,9 @@ ingress:
 gatewayClass: nginx
 gateway:
   enabled: true
-  nlbTarget: "k8s-myapp-nginxgat-da7eaa583f-d3b0663e00ab3892.elb.us-east-1.amazonaws.com"
+  nlbTarget: "k8s-myapp-nginxgat-970fc6588d-e1d5813e281673f4.elb.us-east-1.amazonaws.com"
 replicas: 2
-image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:7a086e66c4b59ceccc0b4ffa37a2e8a34bb8aabe
+image: 533267178572.dkr.ecr.us-east-1.amazonaws.com/crypto-ecr-repo:27d0b1810b2fdde4c96da54bc7cd99f59fa78d2b
 server: https://acme-v02.api.letsencrypt.org/directory
 email: huzaifagill411@gmail.com
 tlsSecretName:
