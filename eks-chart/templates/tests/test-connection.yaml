@@ -6,10 +6,35 @@ metadata:
     {{- include "eks-chart.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
+    checkov.io/skip1: CKV_K8S_21=Namespace is provided by the Argo CD Application destination (my-app)
+    checkov.io/skip2: CKV_K8S_43=busybox test image is pinned to a version tag
+    checkov.io/skip3: CKV_K8S_8=Ephemeral Helm test pod (runs once then exits); liveness probe is not applicable
+    checkov.io/skip4: CKV_K8S_9=Ephemeral Helm test pod (runs once then exits); readiness probe is not applicable
+    checkov.io/skip5: CKV2_K8S_6=Ephemeral Helm test pod; covered by the release namespace, not a long-running workload
 spec:
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
   containers:
     - name: wget
-      image: busybox
+      image: busybox:1.36
+      imagePullPolicy: Always
       command: ['wget']
       args: ['{{ include "eks-chart.fullname" . }}:{{ .Values.service.port }}']
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+      resources:
+        requests:
+          cpu: 25m
+          memory: 32Mi
+        limits:
+          cpu: 50m
+          memory: 64Mi
   restartPolicy: Never
