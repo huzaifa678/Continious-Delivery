@@ -1,0 +1,10 @@
+directory:
+  - .
+
+framework:
+  - helm
+  - kubernetes
+
+compact: true
+quiet: true
+soft-fail: false
